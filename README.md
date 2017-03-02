@@ -39,7 +39,7 @@ Tween.Play(2, 3).Subscribe(x =>
 ```csharp
 Tween.PlayV3(vector0, vector1, 1, Tween.EaseType.Linear).Subscribe(v =>
 {
-    _bgameObject1all.transform.localPosition = v;
+    gameObject1.transform.localPosition = v;
 });
 ```
 ###  Concat aminations
@@ -49,9 +49,9 @@ Tween.PlayV3(vector0, vector1, 1, Tween.EaseType.Linear).Subscribe(v =>
 // Prepare animations
 IObservable<Vector3>[] arr = {
     Tween.PlayV3(v0, v1, 1, Tween.EaseType.Linear, 1.5f, 0),
-    Tween.PlayV3(v1, v2).DoOnCompleted(() => Debug.Log("Pause"),
+    Tween.PlayV3(v1, v2).DoOnCompleted(() => Debug.Log("Pause")),
     // Pause
-    Tween.PlayV3(v2, v2, 2).DoOnCompleted(() => Debug.Log("Start"),
+    Tween.PlayV3(v2, v2, 2).DoOnCompleted(() => Debug.Log("Start")),
     Tween.PlayV3(v2, v3, 3).DoOnSubscribe(() =>
     {
         Quaternion.Euler(0, 0, 0).TweenTo(Quaternion.Euler(0, 0, 180), 1.5f).Subscribe(v =>
