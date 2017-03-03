@@ -2,7 +2,7 @@
 
 Reactive animation utility for Unity
 
-Version 0.9.0
+Version 0.9.1
 
 Created by Fumo Yoshida (@fumobox)
 
