@@ -76,3 +76,8 @@ Observable.Concat(arr).Subscribe(v =>
 });
 
 ```
+## Change Log
+
+### 0.9.1
+
+- Fixed method names for Unity 5.5 or later
