@@ -26,7 +26,7 @@ http://u3d.as/content/neuecc/uni-rx-reactive-extensions-for-unity/7tT
 
 See example code.
 
-### Simple float amination
+### Simple float animation
 
 ```csharp
 Tween.Play(2, 3).Subscribe(x =>
@@ -34,7 +34,7 @@ Tween.Play(2, 3).Subscribe(x =>
     gameObject1.transform.localPosition = new Vector3(x, 0, 0);
 });
 ```
-### Simple vector amination
+### Simple vector animation
 
 ```csharp
 Tween.PlayV3(vector0, vector1, 1, Tween.EaseType.Linear).Subscribe(v =>
@@ -42,7 +42,7 @@ Tween.PlayV3(vector0, vector1, 1, Tween.EaseType.Linear).Subscribe(v =>
     gameObject1.transform.localPosition = v;
 });
 ```
-###  Concat aminations
+###  Concat animations
 
 ```csharp
 
