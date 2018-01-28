@@ -2,7 +2,7 @@
 
 Reactive animation utility for Unity
 
-Version 0.9.1
+Version 0.9.2
 
 Created by Fumo Yoshida (@fumobox)
 
@@ -77,6 +77,11 @@ Observable.Concat(arr).Subscribe(v =>
 
 ```
 ## Change Log
+
+### 0.9.2
+
+- Added TransformExtensions
+- Added animations: EaseInBack, EaseOutBack, EaseInOutBack
 
 ### 0.9.1
 
