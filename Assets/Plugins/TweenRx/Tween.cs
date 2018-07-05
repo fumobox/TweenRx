@@ -334,7 +334,15 @@ namespace TweenRx
                 }
 
                 if (p != start)
+                {
+                    if (ct.IsCancellationRequested)
+                    {
+                        observer.OnCompleted();
+                        yield break;
+                    }
+
                     observer.OnNext(start);
+                }
             }
             else
             {
@@ -382,7 +390,15 @@ namespace TweenRx
                 }
 
                 if (p != end)
+                {
+                    if (ct.IsCancellationRequested)
+                    {
+                        observer.OnCompleted();
+                        yield break;
+                    }
+
                     observer.OnNext(end);
+                }
             }
 
             if (delayAfter > 0)
