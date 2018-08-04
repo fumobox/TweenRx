@@ -39,17 +39,17 @@ namespace TweenRx
 
         #if UNITY_5_5_OR_NEWER
 
-        public static IObservable<Vector2> Play(Vector2 start, Vector2 end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
+        public static UniRx.IObservable<Vector2> Play(Vector2 start, Vector2 end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
         {
             return Execute(0, 1, duration, easeType, delayBefore, delayAfter).Select(t => Vector2.LerpUnclamped(start, end, t));
         }
 
-        public static IObservable<Vector3> Play(Vector3 start, Vector3 end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
+        public static UniRx.IObservable<Vector3> Play(Vector3 start, Vector3 end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
         {
             return Execute(0, 1, duration, easeType, delayBefore, delayAfter).Select(t => Vector3.LerpUnclamped(start, end, t));
         }
 
-        public static IObservable<Vector4> Play(Vector4 start, Vector4 end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
+        public static UniRx.IObservable<Vector4> Play(Vector4 start, Vector4 end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
         {
             return Execute(0, 1, duration, easeType, delayBefore, delayAfter).Select(t => Vector4.LerpUnclamped(start, end, t));
         }
@@ -59,7 +59,7 @@ namespace TweenRx
         #if UNITY_5_5_OR_NEWER
         [System.Obsolete("Use Play()")]
         #endif
-        public static IObservable<Vector2> PlayV2(Vector2 start, Vector2 end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
+        public static UniRx.IObservable<Vector2> PlayV2(Vector2 start, Vector2 end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
         {
             return Execute(0, 1, duration, easeType, delayBefore, delayAfter).Select(t => Vector2.LerpUnclamped(start, end, t));
         }
@@ -67,7 +67,7 @@ namespace TweenRx
         #if UNITY_5_5_OR_NEWER
         [System.Obsolete("Use Play()")]
         #endif
-        public static IObservable<Vector3> PlayV3(Vector3 start, Vector3 end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
+        public static UniRx.IObservable<Vector3> PlayV3(Vector3 start, Vector3 end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
         {
             return Execute(0, 1, duration, easeType, delayBefore, delayAfter).Select(t => Vector3.LerpUnclamped(start, end, t));
         }
@@ -75,39 +75,39 @@ namespace TweenRx
         #if UNITY_5_5_OR_NEWER
         [System.Obsolete("Use Play()")]
         #endif
-        public static IObservable<Vector4> PlayV4(Vector4 start, Vector4 end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
+        public static UniRx.IObservable<Vector4> PlayV4(Vector4 start, Vector4 end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
         {
             return Execute(0, 1, duration, easeType, delayBefore, delayAfter).Select(t => Vector4.LerpUnclamped(start, end, t));
         }
 
-        public static IObservable<float> Play(float start, float end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
+        public static UniRx.IObservable<float> Play(float start, float end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
         {
             return Execute(start, end, duration, easeType, delayBefore, delayAfter);
         }
 
-        public static IObservable<Color> Play(Color start, Color end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
+        public static UniRx.IObservable<Color> Play(Color start, Color end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
         {
             return Execute(0, 1, duration, easeType, delayBefore, delayAfter).Select(t => Color.LerpUnclamped(start, end, t));
         }
 
-        public static IObservable<Quaternion> Play(Quaternion start, Quaternion end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
+        public static UniRx.IObservable<Quaternion> Play(Quaternion start, Quaternion end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
         {
             return Execute(0, 1, duration, easeType, delayBefore, delayAfter).Select(t => Quaternion.LerpUnclamped(start, end, t));
         }
 
         #if UNITY_5_5_OR_NEWER
 
-        public static IObservable<Vector2> TweenTo(this Vector2 start, Vector2 end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
+        public static UniRx.IObservable<Vector2> TweenTo(this Vector2 start, Vector2 end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
         {
             return Execute(0, 1, duration, easeType, delayBefore, delayAfter).Select(t => Vector2.LerpUnclamped(start, end, t));
         }
 
-        public static IObservable<Vector3> TweenTo(this Vector3 start, Vector3 end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
+        public static UniRx.IObservable<Vector3> TweenTo(this Vector3 start, Vector3 end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
         {
             return Execute(0, 1, duration, easeType, delayBefore, delayAfter).Select(t => Vector3.LerpUnclamped(start, end, t));
         }
 
-        public static IObservable<Vector4> TweenTo(this Vector4 start, Vector4 end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
+        public static UniRx.IObservable<Vector4> TweenTo(this Vector4 start, Vector4 end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
         {
             return Execute(0, 1, duration, easeType, delayBefore, delayAfter).Select(t => Vector4.LerpUnclamped(start, end, t));
         }
@@ -117,7 +117,7 @@ namespace TweenRx
         #if UNITY_5_5_OR_NEWER
         [System.Obsolete("Use TweenTo()")]
         #endif
-        public static IObservable<Vector2> TweenToV2(this Vector2 start, Vector2 end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
+        public static UniRx.IObservable<Vector2> TweenToV2(this Vector2 start, Vector2 end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
         {
             return Execute(0, 1, duration, easeType, delayBefore, delayAfter).Select(t => Vector2.LerpUnclamped(start, end, t));
         }
@@ -125,7 +125,7 @@ namespace TweenRx
         #if UNITY_5_5_OR_NEWER
         [System.Obsolete("Use TweenTo()")]
         #endif
-        public static IObservable<Vector3> TweenToV3(this Vector3 start, Vector3 end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
+        public static UniRx.IObservable<Vector3> TweenToV3(this Vector3 start, Vector3 end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
         {
             return Execute(0, 1, duration, easeType, delayBefore, delayAfter).Select(t => Vector3.LerpUnclamped(start, end, t));
         }
@@ -133,27 +133,27 @@ namespace TweenRx
         #if UNITY_5_5_OR_NEWER
         [System.Obsolete("Use TweenTo()")]
         #endif
-        public static IObservable<Vector4> TweenToV4(this Vector4 start, Vector4 end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
+        public static UniRx.IObservable<Vector4> TweenToV4(this Vector4 start, Vector4 end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
         {
             return Execute(0, 1, duration, easeType, delayBefore, delayAfter).Select(t => Vector4.LerpUnclamped(start, end, t));
         }
 
-        public static IObservable<float> TweenTo(this float start, float end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
+        public static UniRx.IObservable<float> TweenTo(this float start, float end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
         {
             return Execute(start, end, duration, easeType, delayBefore, delayAfter);
         }
 
-        public static IObservable<Color> TweenTo(this Color start, Color end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
+        public static UniRx.IObservable<Color> TweenTo(this Color start, Color end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
         {
             return Execute(0, 1, duration, easeType, delayBefore, delayAfter).Select(t => Color.LerpUnclamped(start, end, t));
         }
 
-        public static IObservable<Quaternion> TweenTo(this Quaternion start, Quaternion end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
+        public static UniRx.IObservable<Quaternion> TweenTo(this Quaternion start, Quaternion end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
         {
             return Execute(0, 1, duration, easeType, delayBefore, delayAfter).Select(t => Quaternion.LerpUnclamped(start, end, t));
         }
 
-        static IObservable<float> Execute(float start, float end, float duration, EaseType easeType, float delayBefore, float delayAfter)
+        static UniRx.IObservable<float> Execute(float start, float end, float duration, EaseType easeType, float delayBefore, float delayAfter)
         {
             Func<float, float, float, float, float> formula = null;
             switch (easeType)
@@ -240,7 +240,7 @@ namespace TweenRx
                 TweenEnumerator(start, end, duration, formula, delayBefore, delayAfter, observer, cancellationToken));
         }
 
-        static IEnumerator TweenEnumerator(float start, float end, float duration, Func<float, float, float, float, float> formula, float delayBefore, float delayAfter, IObserver<float> observer, CancellationToken ct)
+        static IEnumerator TweenEnumerator(float start, float end, float duration, Func<float, float, float, float, float> formula, float delayBefore, float delayAfter, UniRx.IObserver<float> observer, CancellationToken ct)
         {
             if (delayBefore > 0)
             {

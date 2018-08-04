@@ -38,7 +38,7 @@ public class TweenRxDemo: MonoBehaviour
 
         _ball1.transform.localPosition = new Vector3(-5, 0, 0);
 
-        IObservable<Vector3>[] arr1 = {
+        UniRx.IObservable<Vector3>[] arr1 = {
             Tween.PlayV3(v0, v1, 1, Tween.EaseType.Linear, 1.5f, 0),
             Tween.PlayV3(v1, v2).DoOnCompleted(() => _text.text = "Pause"),
             // Pause
