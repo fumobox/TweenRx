@@ -2,7 +2,7 @@
 
 Reactive animation utility for Unity
 
-Version 0.9.2
+Version 0.9.3
 
 Created by Fumo Yoshida (@fumobox)
 
@@ -14,7 +14,7 @@ Unity 5.4.2 or later
 
 ### UniRx
 
-UniRx 5.5.0 or later
+UniRx 6.2.2 or later
 
 https://github.com/neuecc/UniRx
 
@@ -77,6 +77,11 @@ Observable.Concat(arr).Subscribe(v =>
 
 ```
 ## Change Log
+
+### 0.9.3
+
+- Added CanvasGroupFadeAnimator
+- Fix compile error for .Net4.6
 
 ### 0.9.2
 
