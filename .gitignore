@@ -32,3 +32,6 @@ sysinfo.txt
 # UniRx
 /Assets/Plugins/UniRx/
 /Assets/Plugins/UniRx.meta
+/ProjectSettings/UnityConnectSettings.asset
+/ProjectSettings/PresetManager.asset
+/Packages/manifest.json
