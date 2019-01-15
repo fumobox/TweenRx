@@ -1,0 +1,10 @@
+﻿{
+    "name": "tweenrx",
+    "displayName": "TweenRx",
+    "version": "0.9.3",
+    "unity": "2018.3.1f1",
+    "description": "Reactive animation utility for Unity",
+    "keywords": ["Script", "Rx"],
+    "category": "Controllers",
+    "dependencies": { }
+}
