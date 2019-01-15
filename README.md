@@ -81,7 +81,7 @@ Observable.Concat(arr).Subscribe(v =>
 ### 0.9.3
 
 - Added CanvasGroupFadeAnimator
-- Fix compile error for .Net4.6
+- Fixed compile error for .Net4.6
 
 ### 0.9.2
 
@@ -91,3 +91,7 @@ Observable.Concat(arr).Subscribe(v =>
 ### 0.9.1
 
 - Fixed method names for Unity 5.5 or later
+
+## Packages
+
+[0.9.3](/Release/tweenrx_0.9.3.unitypackage)
