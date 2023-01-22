@@ -2,25 +2,35 @@
 
 Reactive animation utility for Unity
 
-Version 0.9.3
+Version 1.0.0
 
 Created by Fumo Yoshida (@fumobox)
 
 ## Required Unity Version
 
-Unity 5.4.2 or later
+Unity 2021.3 or later
 
 ## Required Assets
 
 ### UniRx
 
-UniRx 6.2.2 or later
+UniRx 7.1.0 or later
 
 https://github.com/neuecc/UniRx
 
 UniRx is available on the Unity Asset Store
 
 http://u3d.as/content/neuecc/uni-rx-reactive-extensions-for-unity/7tT
+
+## How to import package
+
+1. Open the package manager window
+
+2. Select <b>Add package from git URL</b>
+
+3. Input the url below
+
+https://github.com/fumobox/TweenRx.git?path=/Packages/TweenRx
 
 ## How to use
 
@@ -37,7 +47,7 @@ Tween.Play(2, 3).Subscribe(x =>
 ### Simple vector animation
 
 ```csharp
-Tween.PlayV3(vector0, vector1, 1, Tween.EaseType.Linear).Subscribe(v =>
+Tween.Play(vector0, vector1, 1, Tween.EaseType.Linear).Subscribe(v =>
 {
     gameObject1.transform.localPosition = v;
 });
@@ -48,11 +58,11 @@ Tween.PlayV3(vector0, vector1, 1, Tween.EaseType.Linear).Subscribe(v =>
 
 // Prepare animations
 IObservable<Vector3>[] arr = {
-    Tween.PlayV3(v0, v1, 1, Tween.EaseType.Linear, 1.5f, 0),
-    Tween.PlayV3(v1, v2).DoOnCompleted(() => Debug.Log("Pause")),
+    Tween.Play(v0, v1, 1, Tween.EaseType.Linear, 1.5f, 0),
+    Tween.Play(v1, v2).DoOnCompleted(() => Debug.Log("Pause")),
     // Pause
-    Tween.PlayV3(v2, v2, 2).DoOnCompleted(() => Debug.Log("Start")),
-    Tween.PlayV3(v2, v3, 3).DoOnSubscribe(() =>
+    Tween.Play(v2, v2, 2).DoOnCompleted(() => Debug.Log("Start")),
+    Tween.Play(v2, v3, 3).DoOnSubscribe(() =>
     {
         Quaternion.Euler(0, 0, 0).TweenTo(Quaternion.Euler(0, 0, 180), 1.5f).Subscribe(v =>
         {
@@ -77,6 +87,10 @@ Observable.Concat(arr).Subscribe(v =>
 
 ```
 ## Change Log
+
+### 1.0.0
+
+- Support UPM
 
 ### 0.9.3
 
