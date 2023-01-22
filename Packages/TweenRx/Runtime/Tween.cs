@@ -2,19 +2,15 @@
 using System.Collections;
 using System;
 using UniRx;
-
-#if NET_4_6
 using System.Threading;
-#endif
 
 namespace TweenRx
 {
-
     public static class Tween
     {
         public enum EaseType
         {
-            Linear,
+            Linear = 0,
             EaseInQuad,
             EaseOutQuad,
             EaseInOutQuad,
@@ -41,8 +37,6 @@ namespace TweenRx
             EaseInOutBack,
         }
 
-        #if UNITY_5_5_OR_NEWER
-
         public static IObservable<Vector2> Play(Vector2 start, Vector2 end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
         {
             return Execute(0, 1, duration, easeType, delayBefore, delayAfter).Select(t => Vector2.LerpUnclamped(start, end, t));
@@ -54,32 +48,6 @@ namespace TweenRx
         }
 
         public static IObservable<Vector4> Play(Vector4 start, Vector4 end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
-        {
-            return Execute(0, 1, duration, easeType, delayBefore, delayAfter).Select(t => Vector4.LerpUnclamped(start, end, t));
-        }
-
-        #endif
-
-        #if UNITY_5_5_OR_NEWER
-        [System.Obsolete("Use Play()")]
-        #endif
-        public static IObservable<Vector2> PlayV2(Vector2 start, Vector2 end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
-        {
-            return Execute(0, 1, duration, easeType, delayBefore, delayAfter).Select(t => Vector2.LerpUnclamped(start, end, t));
-        }
-
-        #if UNITY_5_5_OR_NEWER
-        [System.Obsolete("Use Play()")]
-        #endif
-        public static IObservable<Vector3> PlayV3(Vector3 start, Vector3 end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
-        {
-            return Execute(0, 1, duration, easeType, delayBefore, delayAfter).Select(t => Vector3.LerpUnclamped(start, end, t));
-        }
-
-        #if UNITY_5_5_OR_NEWER
-        [System.Obsolete("Use Play()")]
-        #endif
-        public static IObservable<Vector4> PlayV4(Vector4 start, Vector4 end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
         {
             return Execute(0, 1, duration, easeType, delayBefore, delayAfter).Select(t => Vector4.LerpUnclamped(start, end, t));
         }
@@ -99,8 +67,6 @@ namespace TweenRx
             return Execute(0, 1, duration, easeType, delayBefore, delayAfter).Select(t => Quaternion.LerpUnclamped(start, end, t));
         }
 
-        #if UNITY_5_5_OR_NEWER
-
         public static IObservable<Vector2> TweenTo(this Vector2 start, Vector2 end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
         {
             return Execute(0, 1, duration, easeType, delayBefore, delayAfter).Select(t => Vector2.LerpUnclamped(start, end, t));
@@ -112,32 +78,6 @@ namespace TweenRx
         }
 
         public static IObservable<Vector4> TweenTo(this Vector4 start, Vector4 end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
-        {
-            return Execute(0, 1, duration, easeType, delayBefore, delayAfter).Select(t => Vector4.LerpUnclamped(start, end, t));
-        }
-
-        #endif
-
-        #if UNITY_5_5_OR_NEWER
-        [System.Obsolete("Use TweenTo()")]
-        #endif
-        public static IObservable<Vector2> TweenToV2(this Vector2 start, Vector2 end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
-        {
-            return Execute(0, 1, duration, easeType, delayBefore, delayAfter).Select(t => Vector2.LerpUnclamped(start, end, t));
-        }
-
-        #if UNITY_5_5_OR_NEWER
-        [System.Obsolete("Use TweenTo()")]
-        #endif
-        public static IObservable<Vector3> TweenToV3(this Vector3 start, Vector3 end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
-        {
-            return Execute(0, 1, duration, easeType, delayBefore, delayAfter).Select(t => Vector3.LerpUnclamped(start, end, t));
-        }
-
-        #if UNITY_5_5_OR_NEWER
-        [System.Obsolete("Use TweenTo()")]
-        #endif
-        public static IObservable<Vector4> TweenToV4(this Vector4 start, Vector4 end, float duration = 1, EaseType easeType = EaseType.Linear, float delayBefore = 0, float delayAfter = 0)
         {
             return Execute(0, 1, duration, easeType, delayBefore, delayAfter).Select(t => Vector4.LerpUnclamped(start, end, t));
         }
@@ -284,20 +224,18 @@ namespace TweenRx
                 yield break;
             }
 
-            float t = 0;
-            float p = 0;
+            var t = 0f;
+            var p = 0f;
 
             if (start > end)
             {
-                var temp = start;
-                start = end;
-                end = temp;
+                (start, end) = (end, start);
 
                 if (start < 0)
                 {
-                    float offset = -start;
-                    float start1 = 0;
-                    float end1 = end + offset;
+                    var offset = -start;
+                    var start1 = 0f;
+                    var end1 = end + offset;
 
                     while (t <= duration)
                     {
@@ -318,7 +256,7 @@ namespace TweenRx
                 }
                 else
                 {
-                    float c = end - start;
+                    var c = end - start;
 
                     while (t <= duration)
                     {
@@ -352,9 +290,9 @@ namespace TweenRx
             {
                 if (start < 0)
                 {
-                    float offset = -start;
-                    float start1 = 0;
-                    float end1 = end + offset;
+                    var offset = -start;
+                    var start1 = 0f;
+                    var end1 = end + offset;
 
                     while (t <= duration)
                     {
@@ -376,7 +314,7 @@ namespace TweenRx
                 {
                     while (t <= duration)
                     {
-                        float c = end - start;
+                        var c = end - start;
 
                         if (ct.IsCancellationRequested)
                         {

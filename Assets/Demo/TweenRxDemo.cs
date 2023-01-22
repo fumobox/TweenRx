@@ -39,11 +39,11 @@ public class TweenRxDemo: MonoBehaviour
         _ball1.transform.localPosition = new Vector3(-5, 0, 0);
 
         IObservable<Vector3>[] arr1 = {
-            Tween.PlayV3(v0, v1, 1, Tween.EaseType.Linear, 1.5f, 0),
-            Tween.PlayV3(v1, v2).DoOnCompleted(() => _text.text = "Pause"),
+            Tween.Play(v0, v1, 1, Tween.EaseType.Linear, 1.5f, 0),
+            Tween.Play(v1, v2).DoOnCompleted(() => _text.text = "Pause"),
             // Pause
-            Tween.PlayV3(v2, v2, 2).DoOnCompleted(() => _text.text = "Start"),
-            Tween.PlayV3(v2, v3, 3).DoOnSubscribe(() =>
+            Tween.Play(v2, v2, 2).DoOnCompleted(() => _text.text = "Start"),
+            Tween.Play(v2, v3, 3).DoOnSubscribe(() =>
             {
                 Quaternion.Euler(0, 0, 0).TweenTo(Quaternion.Euler(0, 0, 180), 1.5f).Subscribe(x =>
                 {
@@ -51,7 +51,7 @@ public class TweenRxDemo: MonoBehaviour
                 });
             }),
             // Extension method
-            v3.TweenToV3(v0).DoOnSubscribe(() =>
+            v3.TweenTo(v0).DoOnSubscribe(() =>
             {
                 Tween.Play(Quaternion.Euler(0, 0, 0), Quaternion.Euler(270, 0, 0)).Subscribe(x =>
                 {
@@ -83,7 +83,7 @@ public class TweenRxDemo: MonoBehaviour
     {
         var easeType = (Tween.EaseType)(easeTypeValue % 22);
         _text.text = easeType.ToString();
-        _disposable = Tween.PlayV3(new Vector3(-5, 0, 0), new Vector3(5, 0, 0), 5, easeType, 1, 1).Subscribe(x =>
+        _disposable = Tween.Play(new Vector3(-5, 0, 0), new Vector3(5, 0, 0), 5, easeType, 1, 1).Subscribe(x =>
         {
             _ball2.transform.localPosition = x;
         },
