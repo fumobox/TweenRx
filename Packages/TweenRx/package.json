@@ -1,0 +1,15 @@
+﻿{
+    "name": "com.fumobox.tweenrx",
+    "displayName": "TweenRx",
+    "version": "1.0.0",
+    "unity": "2021.3",
+    "description": "Reactive animation utility for Unity",
+    "keywords": ["Script", "Rx"],
+    "category": "Controllers",
+    "author": {
+        "name": "fumobox"
+      },
+    "dependencies": { 
+        "com.neuecc.unirx": "7.1.0"
+    }
+}
